@@ -1,0 +1,15 @@
+{
+  "name": "ruang-rapat",
+  "version": "1.0.0",
+  "description": "Sistem Informasi Ruang Rapat Biro Kepegawaian",
+  "main": "index.js",
+  "dependencies": {
+    "fullcalendar": "^3.7.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "mrjuoss@gmail.com",
+  "license": "ISC"
+}
