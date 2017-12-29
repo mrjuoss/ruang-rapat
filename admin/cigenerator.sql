@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 24 Des 2017 pada 18.34
+-- Generation Time: 27 Nov 2017 pada 15.54
 -- Versi Server: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -19,30 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `cigenerator`
 --
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `tbl_hak_akses`
---
-
-CREATE TABLE `tbl_hak_akses` (
-  `id` int(11) NOT NULL,
-  `id_user_level` int(11) NOT NULL,
-  `id_menu` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `tbl_hak_akses`
---
-
-INSERT INTO `tbl_hak_akses` (`id`, `id_user_level`, `id_menu`) VALUES
-(15, 1, 1),
-(19, 1, 3),
-(20, 1, 2),
-(21, 2, 1),
-(24, 1, 9),
-(28, 2, 3);
 
 -- --------------------------------------------------------
 
@@ -67,31 +43,13 @@ INSERT INTO `tbl_menu` (`id_menu`, `title`, `url`, `icon`, `is_main_menu`, `is_a
 (1, 'KELOLA MENU', 'kelolamenu', 'fa fa-server', 0, 'y'),
 (2, 'KELOLA PENGGUNA', 'user', 'fa fa-user-o', 0, 'y'),
 (3, 'level PENGGUNA', 'userlevel', 'fa fa-users', 0, 'y'),
-(4, 'Sample Menu', 'Sample Menu', 'fa fa-graduation-cap', 0, 'y'),
-(5, 'Sample Menu', 'Sample Menu', 'fa fa-bed', 0, 'y'),
-(6, 'Sample Menu', 'Sample Menu', 'fa-id-card', 0, 'y'),
-(7, 'Sample Menu', 'Sample Menu', 'fa fa-area-chart', 0, 'y'),
-(8, 'Sample Menu', 'Sample Menu', 'fa-id-card', 0, 'y'),
-(9, 'Contoh Form', 'welcome/form', 'fa fa-id-card', 0, 'y');
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `tbl_setting`
---
-
-CREATE TABLE `tbl_setting` (
-  `id_setting` int(11) NOT NULL,
-  `nama_setting` varchar(50) NOT NULL,
-  `value` varchar(40) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `tbl_setting`
---
-
-INSERT INTO `tbl_setting` (`id_setting`, `nama_setting`, `value`) VALUES
-(1, 'Tampil Menu', 'ya');
+(4, 'Sample Menu', 'Sample Menu', 'fa fa-graduation-cap', 0, 'n'),
+(5, 'Sample Menu', 'Sample Menu', 'fa fa-bed', 0, 'n'),
+(6, 'Sample Menu', 'Sample Menu', 'fa-id-card', 0, 'n'),
+(7, 'Sample Menu', 'Sample Menu', 'fa fa-area-chart', 0, 'n'),
+(8, 'Sample Menu', 'Sample Menu', 'fa-id-card', 0, 'n'),
+(9, 'Contoh Form', 'welcome/form', 'fa fa-id-card', 0, 'y'),
+(12, 'Data Poliklinik', 'poliklinik', 'fa fa-graduation-cap', 0, 'y');
 
 -- --------------------------------------------------------
 
@@ -115,7 +73,7 @@ CREATE TABLE `tbl_user` (
 
 INSERT INTO `tbl_user` (`id_users`, `full_name`, `email`, `password`, `images`, `id_user_level`, `is_aktif`) VALUES
 (1, 'Nuris Akbar M.Kom', 'nuris.akbar@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'Cover_TIPSTRIK_codeigniter.jpg', 1, 'y'),
-(3, 'Muhammad hafidz Muzaki', 'hafid@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', '7.png', 2, 'y');
+(3, 'Muhammad hafidz Muzaki', 'hafid@gmail.com', 'f2621da6b3d4f712bf5e29861f186c7c', '7.png', 2, 'y');
 
 -- --------------------------------------------------------
 
@@ -141,22 +99,10 @@ INSERT INTO `tbl_user_level` (`id_user_level`, `nama_level`) VALUES
 --
 
 --
--- Indexes for table `tbl_hak_akses`
---
-ALTER TABLE `tbl_hak_akses`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `tbl_menu`
 --
 ALTER TABLE `tbl_menu`
   ADD PRIMARY KEY (`id_menu`);
-
---
--- Indexes for table `tbl_setting`
---
-ALTER TABLE `tbl_setting`
-  ADD PRIMARY KEY (`id_setting`);
 
 --
 -- Indexes for table `tbl_user`
@@ -175,20 +121,10 @@ ALTER TABLE `tbl_user_level`
 --
 
 --
--- AUTO_INCREMENT for table `tbl_hak_akses`
---
-ALTER TABLE `tbl_hak_akses`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
---
 -- AUTO_INCREMENT for table `tbl_menu`
 --
 ALTER TABLE `tbl_menu`
-  MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
---
--- AUTO_INCREMENT for table `tbl_setting`
---
-ALTER TABLE `tbl_setting`
-  MODIFY `id_setting` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `tbl_user`
 --

@@ -236,10 +236,6 @@ class User extends CI_Controller
         
         $this->load->view('user/tbl_user_doc',$data);
     }
-    
-    function profile(){
-        
-    }
 
 }
 

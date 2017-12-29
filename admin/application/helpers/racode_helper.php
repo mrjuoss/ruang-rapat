@@ -39,25 +39,11 @@ function datalist_dinamis($name,$table,$field,$value=null){
 function rename_string_is_aktif($string){
         return $string=='y'?'Aktif':'Tidak Aktif';
     }
-    
 
 function is_login(){
     $ci = get_instance();
     if(empty($ci->session->userdata('id_users'))){
         redirect('auth');
-    }else{
-        $modul = $ci->uri->segment(2);
-        
-        $id_user_level = $ci->session->userdata('id_user_level');
-        // dapatkan id menu berdasarkan nama controller
-        $menu = $ci->db->get_where('tbl_menu',array('url'=>$modul))->row_array();
-        $id_menu = $menu['id_menu'];
-        // chek apakah user ini boleh mengakses modul ini
-        $hak_akses = $ci->db->get_where('tbl_hak_akses',array('id_menu'=>$id_menu,'id_user_level'=>$id_user_level));
-        if($hak_akses->num_rows()<1){
-            redirect('blokir');
-            exit;
-        }
     }
 }
 
@@ -67,15 +53,4 @@ function alert($class,$title,$description){
                 <h4><i class="icon fa fa-ban"></i> '.$title.'</h4>
                 '.$description.'
               </div>';
-}
-
-// untuk chek akses level pada modul peberian akses
-function checked_akses($id_user_level,$id_menu){
-    $ci = get_instance();
-    $ci->db->where('id_user_level',$id_user_level);
-    $ci->db->where('id_menu',$id_menu);
-    $data = $ci->db->get('tbl_hak_akses');
-    if($data->num_rows()>0){
-        return "checked='checked'";
-    }
 }

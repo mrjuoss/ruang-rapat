@@ -92,11 +92,11 @@
                                                       A.deskripsi_rapat,
                                                       A.pimpinan_rapat,
                                                       A.peserta_rapat,
-                                                      A.kontak_person
+                                                      B.no_telp
                                                     FROM jadwal_rapat A
                                                     INNER JOIN users B
-                                                    ON A.id_pengguna = B.id
-                                                    WHERE id_ruang = '".$data->id."'";
+                                                    ON A.id_pengguna = B.id_pengguna
+                                                    WHERE id_ruang = '".$data->id_ruangan."'";
 
                                   $result_rapat = mysqli_query($koneksi, $query_rapat);
 
@@ -150,7 +150,7 @@
                                         </div>
                                       </div>
                                     </div>
-                                    
+
                                   </div>
                                   <!-- End Detail Modal -->
                                   <?php

@@ -15,16 +15,8 @@ class Kelolamenu extends CI_Controller
 
     public function index()
     {
-        $data['setting'] = $this->db->get_where('tbl_setting',array('id_setting'=>1))->row_array();
-        $this->template->load('template','kelolamenu/tbl_menu_list',$data);
-    }
-    
-    function simpan_setting(){
-        $value = $this->input->post('tampil_menu');
-        $this->db->where('id_setting',1);
-        $this->db->update('tbl_setting',array('value'=>$value));
-        redirect('kelolamenu');
-    }
+        $this->template->load('template','kelolamenu/tbl_menu_list');
+    } 
     
     public function json() {
         header('Content-Type: application/json');

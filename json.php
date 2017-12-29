@@ -16,7 +16,7 @@ $query = "SELECT
           B.nama_ruang AS nama_ruang
           FROM jadwal_rapat A
           INNER JOIN ruangan B
-          ON A.id_ruang = B.id";
+          ON A.id_ruang = B.id_ruangan";
 
 $result = mysqli_query($koneksi, $query) or die(mysqli_error());
 

@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 require __DIR__.'/library/config.php';
 
@@ -38,10 +38,4 @@ $row = $resultRapat->fetch_object();
 		<td>:</td>
 		<td><?=$row->peserta_rapat;?></td>
 	</tr>
-	<tr>
-		<td>Kontak Person</td>
-		<td>:</td>
-		<td><?=$row->kontak_person;?></td>
-	</tr>
 </table>
-

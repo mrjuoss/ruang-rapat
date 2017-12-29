@@ -8,7 +8,7 @@ class Userlevel extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        //is_login();
+        is_login();
         $this->load->model('User_level_model');
         $this->load->library('form_validation');        
 	$this->load->library('datatables');
@@ -36,28 +36,6 @@ class Userlevel extends CI_Controller
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
             redirect(site_url('userlevel'));
-        }
-    }
-    
-    function akses(){
-        $data['level'] = $this->db->get_where('tbl_user_level',array('id_user_level'=>  $this->uri->segment(3)))->row_array();
-        $data['menu'] = $this->db->get('tbl_menu')->result();
-        $this->template->load('template','userlevel/akses',$data);
-    }
-    
-    function kasi_akses_ajax(){
-        $id_menu        = $_GET['id_menu'];
-        $id_user_level  = $_GET['level'];
-        // chek data
-        $params = array('id_menu'=>$id_menu,'id_user_level'=>$id_user_level);
-        $akses = $this->db->get_where('tbl_hak_akses',$params);
-        if($akses->num_rows()<1){
-            // insert data baru
-            $this->db->insert('tbl_hak_akses',$params);
-        }else{
-            $this->db->where('id_menu',$id_menu);
-            $this->db->where('id_user_level',$id_user_level);
-            $this->db->delete('tbl_hak_akses');
         }
     }
 
